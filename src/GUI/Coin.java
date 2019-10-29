@@ -9,6 +9,10 @@ public class Coin extends Paintable {
 	
 	private int value = 1;
 
+	//--------------//
+	// Constructors //
+	//--------------//
+	
 	public Coin(int x, int y) {
 		super(null, x, y);
 		try {
@@ -28,6 +32,12 @@ public class Coin extends Paintable {
 		super(coin.getImg(), x, y);
 		value = coin.value;
 	}
+	
+	//************************************************************
+	
+	//---------//
+	// Getters //
+	//---------//
 	
 	public int getValue() {
 		return value;

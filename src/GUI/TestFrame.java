@@ -15,6 +15,8 @@ import java.awt.event.WindowEvent;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
+//Window builder file
+
 public class TestFrame extends JFrame {
 	
 	/**
@@ -66,6 +68,7 @@ public class TestFrame extends JFrame {
 		contentPane.add(lblMoney, BorderLayout.SOUTH);
 	}
 	
+	//End the program when the window closes
 	public void close() {
 		WindowEvent winClosingEvent = new WindowEvent(this, WindowEvent.WINDOW_CLOSING );
 		Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent( winClosingEvent );

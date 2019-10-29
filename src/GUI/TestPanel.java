@@ -18,12 +18,18 @@ import javax.swing.AbstractAction;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
+//Panel file (the game window contents)
+
 public class TestPanel extends JPanel {
 	
 	/**
 	 * 
 	 */
+	
+	//Unknown purpose
 	private static final long serialVersionUID = 1L;
+	
+	//Set window size?
 	private static int maxX = 900;
 	private static int maxY = 700;
 	
@@ -37,6 +43,7 @@ public class TestPanel extends JPanel {
 	private ArrayList<Coin> coins = new ArrayList<Coin>();
 	private ArrayList<Paintable> toDraw;
 	
+	//Initialization (constructor)
 	public TestPanel(TestFrame cp) {
 		contentPane = cp;
 		player = new Player();
@@ -62,11 +69,11 @@ public class TestPanel extends JPanel {
 			toDraw.add(c);
 		}
 		
-//		cp.setBounds(maxX, maxY);
 		toDraw.add(player);
 		setKeys();
 	}
 	
+	//Paint the image, this IS a frame
 	public void paint(Graphics g) {
 		super.paint(g);
 		try {
@@ -257,7 +264,7 @@ public class TestPanel extends JPanel {
 		this.getActionMap().put("stopVMovement", stopVMovement);
 		
 		//Shift
-		this.getInputMap().put(KeyStroke.getKeyStroke("L"), "speedUp");
+		this.getInputMap().put(KeyStroke.getKeyStroke("pressed L"), "speedUp");
 		this.getActionMap().put("speedUp", new AbstractAction() {
 			public void actionPerformed(ActionEvent e) {
 				player.speedUp();

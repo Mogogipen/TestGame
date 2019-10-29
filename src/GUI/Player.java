@@ -9,6 +9,11 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+//*****------------------------------------------------------------------------*****//
+// This is the player class, it is capable of moving, colliding, and being painted. //
+// This is what the game follows as it progresses.									//
+//*****------------------------------------------------------------------------*****//
+
 public class Player extends Paintable {
 
 	private BufferedImage stoppedR;
@@ -23,6 +28,10 @@ public class Player extends Paintable {
 	private int yDir;
 	private int speed = 4;
 	
+	//-----------//
+	//Constructor//
+	//-----------//
+	
 	public Player() {
 		//Position the player in the first tile
 		super(null, 128, 128);
@@ -36,16 +45,21 @@ public class Player extends Paintable {
 			moving1R = Paintable.enlargeImg(moving1R, 4);
 			moving2R = Paintable.enlargeImg(moving2R, 4);
 			//Flip & duplicate images for different directions
-			stoppedL = flipImage(stoppedR);
-			moving1L = flipImage(moving1R);
-			moving2L = flipImage(moving2R);
+			stoppedL = flipImageH(stoppedR);
+			moving1L = flipImageH(moving1R);
+			moving2L = flipImageH(moving2R);
 			setImg(stoppedR);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 	
-	//Getters (position and speed)
+	//***************************
+	
+	//-------------------//
+	// Getters & Setters //
+	//-------------------//
+	
 	public int getXDir() {
 		return xDir;
 	}
@@ -55,8 +69,15 @@ public class Player extends Paintable {
 	public int getSpeed() {
 		return speed;
 	}
-
-	//Movement method, called every frame
+	
+	//*****************************
+	
+	//----------------------//
+	// Main movement method //
+	// This is called every //
+	// frame.				//
+	//----------------------//
+	
 	public void move(boolean isColliding) {
 		//Move the player into the bounds of the map, if they aren't.
 		if (!isInBounds())
@@ -125,8 +146,12 @@ public class Player extends Paintable {
 		setX(128);
 		setY(128);
 	}
-
-	// ** Movement methods ****************************************
+	
+	//*********************************************************
+	
+	//------------------//
+	// Movement Methods //
+	//------------------//
 	//Calling any one of these will change the direction of movement, speed, and/or resets the image switch timer.
 	
 	public void moveRight() {
@@ -167,6 +192,11 @@ public class Player extends Paintable {
 	}
 	
 	// *************************************************************
+	
+	//---------------------//
+	// Collision Detection //
+	// Out of class use    //
+	//---------------------//
 	
 	@Override
 	//Collision detection (for use outside of class)
